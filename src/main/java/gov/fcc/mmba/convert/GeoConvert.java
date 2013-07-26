@@ -67,28 +67,28 @@ public class GeoConvert {
 
 			if (testType.equals("JHTTPGETMT")) {
 				sb.append("target").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("target")).append(INTERNAL_DELIMITER);
-				sb.append("bytes_sec").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("bytes_sec").getAsInt()*0.000008).append(INTERNAL_DELIMITER);
+				sb.append("bytes_sec").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("bytes_sec")).append(INTERNAL_DELIMITER);
 				sb.append("success").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("success")).append(INTERNAL_DELIMITER);
-				sb.append("transfer_bytes").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("transfer_bytes").getAsNumber()).append(INTERNAL_DELIMITER);
-				sb.append("transfer_time").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("transfer_time").getAsNumber());
+				sb.append("transfer_bytes").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("transfer_bytes")).append(INTERNAL_DELIMITER);
+				sb.append("transfer_time").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("transfer_time"));
 				aggregated.add(testType + " (" + (++getCount) + ")", new JsonPrimitive(sb.toString()));
 			}
 			else if (testType.equals("JHTTPPOSTMT")) {
 				sb.append("target").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("target")).append(INTERNAL_DELIMITER);
-				sb.append("bytes_sec").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("bytes_sec").getAsInt()*0.000008).append(INTERNAL_DELIMITER);
+				sb.append("bytes_sec").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("bytes_sec")).append(INTERNAL_DELIMITER);
 				sb.append("success").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("success")).append(INTERNAL_DELIMITER);
-				sb.append("transfer_bytes").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("transfer_bytes").getAsNumber()).append(INTERNAL_DELIMITER);
-				sb.append("transfer_time").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("transfer_time").getAsNumber());
+				sb.append("transfer_bytes").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("transfer_bytes")).append(INTERNAL_DELIMITER);
+				sb.append("transfer_time").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("transfer_time"));
 				aggregated.add(testType + " (" + (++postCount) + ")", new JsonPrimitive(sb.toString()));
 			}
 			else if (testType.equals("JUDPLATENCY")) {
 				sb.append("target").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("target")).append(INTERNAL_DELIMITER);
 				sb.append("success").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("success")).append(INTERNAL_DELIMITER);
-				sb.append("rtt_avg").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("rtt_avg").getAsInt()/1000).append(INTERNAL_DELIMITER);
-				sb.append("rtt_min").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("rtt_min").getAsInt()/1000).append(INTERNAL_DELIMITER);
-				sb.append("rtt_max").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("rtt_max").getAsInt()/1000).append(INTERNAL_DELIMITER);
-				sb.append("received_packets").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("received_packets").getAsNumber()).append(INTERNAL_DELIMITER);
-				sb.append("lost_packets").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("lost_packets").getAsNumber());
+				sb.append("rtt_avg").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("rtt_avg")).append(INTERNAL_DELIMITER);
+				sb.append("rtt_min").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("rtt_min")).append(INTERNAL_DELIMITER);
+				sb.append("rtt_max").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("rtt_max")).append(INTERNAL_DELIMITER);
+				sb.append("received_packets").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("received_packets")).append(INTERNAL_DELIMITER);
+				sb.append("lost_packets").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("lost_packets"));
 				aggregated.add(testType + " (" + (++latencyCount) + ")", new JsonPrimitive(sb.toString()));
 			}
 		}
@@ -102,7 +102,7 @@ public class GeoConvert {
 			JsonObject tempJSObj = (JsonObject) temp;
 			String testType = tempJSObj.get("type").getAsString();
 			if (testType.equals("gsm_cell_location")) {
-				sb.append("gsm_signal_strength").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("signal_strength").getAsNumber());
+				sb.append("gsm_signal_strength").append(INTERNAL_DESIGNATOR).append(tempJSObj.get("signal_strength"));
 				aggregated.add(testType + " (" + (++gsmCount) + ")", new JsonPrimitive(sb.toString()));
 			}
 			else if (testType.equals("cdma_cell_location")) {
