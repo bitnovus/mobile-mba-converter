@@ -113,7 +113,7 @@ public class JsonTransformer {
 				if (args.length > 4)
 					FORMAT_JSON_FLAG = checkYesNo(args[4]);
 				if (args.length > 5)
-					FORMAT_GEOJSON_FLAG = checkYesNo(args[4]);
+					FORMAT_GEOJSON_FLAG = checkYesNo(args[5]);
 				long startTime = System.currentTimeMillis();
 				convert(sourcefolder, destination);
 				long timeTaken = System.currentTimeMillis() - startTime;
