@@ -237,6 +237,7 @@ public class JsonTransformer {
 		appendString(sb, jObject.get("app_version_name"));
 		appendString(sb, jObject.get("submission_type"));
 		appendString(sb, jObject.get("_sourceip"));
+		appendString(sb, jObject.get("user_self_id"));
 	}
 
 	private static void extractConditions(JsonObject conditions, StringBuilder sb) {
@@ -397,9 +398,8 @@ public class JsonTransformer {
 			appendString(sb, json.get("manufacturer"));
 			appendString(sb, json.get("os_version"));
 			appendString(sb, json.get("os_type"));
-			appendString(sb, json.get("user_self_id"));
 		} else {
-			appendNull(sb, 6);
+			appendNull(sb, 5);
 		}
 	}
 
@@ -462,6 +462,7 @@ public class JsonTransformer {
 		append(sb,"app_version_name");
 		append(sb,"submission_type");
 		append(sb,"_sourceip");
+		append(sb,"user_self_id");
 	}
 
 	private static void getConditionsHeaders(StringBuilder sb) {
@@ -563,7 +564,6 @@ public class JsonTransformer {
 		append(sb, "manufacturer");
 		append(sb, "os_version");
 		append(sb, "os_type");
-		append(sb, "user_self_id");
 	}
 
 	private static void getLatencyHeaders(StringBuilder sb) {
