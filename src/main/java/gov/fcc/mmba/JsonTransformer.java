@@ -438,6 +438,14 @@ public class JsonTransformer {
         }
     }
     
+    private static void extractSelfID(JsonObject json, StringBuilder sb) {
+    	if (json != null) {
+    		appendString(sb, json.get("user_self_id"));
+    	} else {
+    		appendNull(sb, 1);
+    	}
+    }
+    
     private static String getCSVHeaders() {
 		StringBuilder sb = new StringBuilder();
 		
@@ -461,6 +469,7 @@ public class JsonTransformer {
 	    append(sb,"app_version_name");
 	    append(sb,"submission_type");
 	    append(sb,"_sourceip");
+	    append(sb,"user_self_id");
 	}
 
 	private static void getConditionsHeaders(StringBuilder sb) {
@@ -562,6 +571,7 @@ public class JsonTransformer {
 		append(sb, "manufacturer");
 		append(sb, "os_version");
 		append(sb, "os_type");
+		append(sb, "user_self_id");
 	}
 
 	private static void getLatencyHeaders(StringBuilder sb) {
@@ -589,6 +599,10 @@ public class JsonTransformer {
         append(sb, "target");
         append(sb, "target_ipaddress");
     }
+	
+	private static void getSelfIDHeader(StringBuilder sb) {
+		append(sb, "user_self_id");
+	}
 
     private static void append(StringBuilder sb, Object obj) {
         sb.append(TEXT_DELIMITER).append(obj).append(TEXT_DELIMITER).append(FIELD_DELIMITER);
